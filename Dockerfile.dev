@@ -1,0 +1,14 @@
+FROM node:latest
+LABEL authors="khaledgamal"
+
+WORKDIR /app
+
+COPY ./package.json .
+
+RUN npm i;
+
+RUN echo `pwd`
+# We don't need to copy this as long as we're using volumes
+COPY . .
+
+CMD ["npm","run","start"]
